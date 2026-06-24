@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  /* Custom brand colors to match Natural Tones design theme */
+  --color-brand-emerald: #5A5A40; /* Muted warm Olive Green */
+  --color-brand-emerald-dark: #43432F; /* Darker Olive for hovers */
+  --color-brand-mint: #E8E8E0; /* Soft Warm Gray / Sage Cream */
+  --color-brand-gold: #B88E52; /* Earthy Warm Ochre/Gold */
+  --color-brand-cream: #F5F5F0; /* Soft warm Linen/Beige background */
+  --color-brand-warm-gray: #EBEBE3; /* Warm stone-gray accent background */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-brand-cream text-neutral-800 font-sans antialiased;
+}
