@@ -60,7 +60,7 @@ export default function App() {
 
   // Profile Photo — static, same for every visitor
  // const profileImage = './IMG_8.webp';
-import profileImage from './IMG_8.jpg';
+const profileImage = new URL('./IMG_8.webp', import.meta.url).href;
   // References for smooth scrolling
   const servicesRef = useRef<HTMLDivElement>(null);
   const calculatorRef = useRef<HTMLDivElement>(null);
