@@ -31,8 +31,8 @@ import {
 
 import { SERVICES, FAQS, INSTAGRAM_POSTS } from './data';
 import { ConsultationRequest } from './types';
-import FeeCalculator from './components/FeeCalculator';
-import AdminRequestsDrawer from './components/AdminRequestsDrawer';
+import FeeCalculator from './FeeCalculator';
+import AdminRequestsDrawer from './AdminRequestsDrawer';
 
 export default function App() {
   // Navigation states
