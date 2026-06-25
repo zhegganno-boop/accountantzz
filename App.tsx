@@ -59,7 +59,7 @@ export default function App() {
   const [faqCategory, setFaqCategory] = useState<'all' | 'fop' | 'tov' | 'taxes'>('all');
 
   // Profile Photo — static, same for every visitor
-  const profileImage = 'IMG_8466.JPG';
+  const profileImage = './IMG_8466.JPG';
 
   // References for smooth scrolling
   const servicesRef = useRef<HTMLDivElement>(null);
