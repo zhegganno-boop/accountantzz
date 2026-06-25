@@ -24,9 +24,7 @@ import {
   Bell,
   Database,
   Users,
-  CheckSquare,
-  Camera,
-  Upload
+  CheckSquare
 } from 'lucide-react';
 
 import { SERVICES, FAQS, INSTAGRAM_POSTS } from './data';
@@ -60,36 +58,8 @@ export default function App() {
   const [activeFaqId, setActiveFaqId] = useState<string | null>(null);
   const [faqCategory, setFaqCategory] = useState<'all' | 'fop' | 'tov' | 'taxes'>('all');
 
-  // Profile Photo state (persisted so Oksana can upload her real image)
-  const [profileImage, setProfileImage] = useState(() => {
-    return localStorage.getItem('oksana_profile_image') || 'https://images.unsplash.com/photo-1580894732444-8fecef2271ac?auto=format&fit=crop&w=800&q=80';
-  });
-
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64String = reader.result as string;
-        try {
-          localStorage.setItem('oksana_profile_image', base64String);
-          setProfileImage(base64String);
-          setToastMessage('Фотографію успішно оновлено!');
-          setShowToast(true);
-          setTimeout(() => setShowToast(false), 3000);
-        } catch (error) {
-          // If storage quota exceeded for base64, set state but inform user
-          setProfileImage(base64String);
-          setToastMessage('Фото завантажено тимчасово (перевищено ліміт локального сховища для офлайн збереження).');
-          setShowToast(true);
-          setTimeout(() => setShowToast(false), 4000);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  // Profile Photo — static, same for every visitor
+  const profileImage = 'https://images.unsplash.com/photo-1580894732444-8fecef2271ac?auto=format&fit=crop&w=800&q=80';
 
   // References for smooth scrolling
   const servicesRef = useRef<HTMLDivElement>(null);
@@ -624,28 +594,7 @@ export default function App() {
                         referrerPolicy="no-referrer"
                         className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      
-                      {/* Interactive Edit Overlay */}
-                      <button 
-                        onClick={() => fileInputRef.current?.click()}
-                        className="absolute inset-0 bg-neutral-900/60 flex flex-col items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white cursor-pointer"
-                        title="Завантажити власну фотографію"
-                      >
-                        <div className="p-3 bg-brand-emerald text-white rounded-full shadow-lg">
-                          <Camera className="w-5 h-5" />
-                        </div>
-                        <span className="text-xs font-semibold tracking-wide">Завантажити власне фото</span>
-                        <span className="text-[10px] text-neutral-300 px-4 text-center">Натисніть, щоб обрати файл на пристрої</span>
-                      </button>
                     </div>
-
-                    <input 
-                      type="file" 
-                      ref={fileInputRef} 
-                      onChange={handlePhotoUpload} 
-                      accept="image/*" 
-                      className="hidden" 
-                    />
 
                     <div className="p-4 text-center">
                       <h4 className="font-serif font-bold text-lg text-neutral-800">Оксана Фальонок</h4>
