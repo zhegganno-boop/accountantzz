@@ -59,8 +59,8 @@ export default function App() {
   const [faqCategory, setFaqCategory] = useState<'all' | 'fop' | 'tov' | 'taxes'>('all');
 
   // Profile Photo — static, same for every visitor
-  const profileImage = './IMG_8.webp';
-
+ // const profileImage = './IMG_8.webp';
+import profileImage from './IMG_8.webp';
   // References for smooth scrolling
   const servicesRef = useRef<HTMLDivElement>(null);
   const calculatorRef = useRef<HTMLDivElement>(null);
