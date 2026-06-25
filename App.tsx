@@ -59,7 +59,7 @@ export default function App() {
   const [faqCategory, setFaqCategory] = useState<'all' | 'fop' | 'tov' | 'taxes'>('all');
 
   // Profile Photo — static, same for every visitor
-  const profileImage = 'https://images.unsplash.com/photo-1580894732444-8fecef2271ac?auto=format&fit=crop&w=800&q=80';
+  const profileImage = 'IMG_8466.JPG';
 
   // References for smooth scrolling
   const servicesRef = useRef<HTMLDivElement>(null);
@@ -949,7 +949,7 @@ export default function App() {
                 <div className="space-y-4 text-xs md:text-sm">
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-brand-mint shrink-0" />
-                    <span className="font-medium">+380 97 123 4567 (Контактний номер)</span>
+                    <span className="font-medium">+380 67 572 5389 (Контактний номер)</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-brand-mint shrink-0" />
@@ -1014,7 +1014,7 @@ export default function App() {
                         required
                         value={formPhone}
                         onChange={(e) => setFormPhone(e.target.value)}
-                        placeholder="+380 97 123 4567"
+                        placeholder="+380 67 572 5389"
                         className="w-full bg-white border border-neutral-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-emerald focus:border-transparent transition-all"
                       />
                     </div>
